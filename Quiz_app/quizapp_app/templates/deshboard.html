@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deshboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+   {% comment %} this code use for stop to go back on page {% endcomment %}
+   <script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+  </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#">Hi  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Lets Quiz </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/deshboard/">{{username}} </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout/">Log Out </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class='container'>
+        <div class='row' style='margin-top: 150px;'>
+          <div class='col-md-6'>
+           <div style='display:grid; place-content:start; font-size: 20px;'>
+           <table>
+              <p style='background-color:black; color:white; padding:0px 5px;'> Read instructions before starting the quiz </p> 
+              <ul> 
+                  <li> Give 4 options click on right answer </li>
+                  <li> After click save your answer </li>
+                  <li> Each question have 1 marks </li>
+                  <li> passing marks is 60% </li>
+                  <li> After completed quiz your final result is show </li>
+              <ul>
+           </table>
+           </div>
+          </div>
+          <div class='col-md-6'>
+            <div style='font-size: 20px;'>
+              <p style='background-color:black; color:white; padding:0px 5px;' > Please select your favorite Web language </p>
+            </div>
+              <form action="{% url 'question' %}" method='POST'>
+                {% csrf_token %}
+                  <input type="radio" id="Python" name="lang" value="Python">
+                  <label for="Python">Python</label><br>
+                  <input type="radio" id="Django" name="lang" value="Django">
+                  <label for="Django">Django</label><br>
+                  <input type="radio" id="HTML" name="lang" value="HTML">
+                  <label for="HTML">HTML</label><br>
+                  <input type="radio" id="CSS" name="lang" value="CSS">
+                  <label for="CSS">CSS</label><br>
+                  <input type="radio" id="javascript" name="lang" value="JavaScript">
+                  <label for="javascript">JavaScript</label><br>
+                  <input type="radio" id="Mysql" name="lang" value="Mysql">
+                  <label for="Mysql">Mysql</label><br>
+               <div style='margin-top:20px;'>
+                <button type='submit' class=' btn btn-dark color-white w-100'> Submit </button>
+              </div>
+            </form>
+            </div>
+           </div>
+         </div>     
+      </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
